@@ -1,6 +1,11 @@
 # Compiled class file
 *.class
 
+.cheatsheet.xml
+.classpath
+.project
+.settings/
+
 # Log file
 *.log
 

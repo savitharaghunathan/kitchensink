@@ -1,0 +1,8 @@
+/Users/sraghuna/local_dev/kitchensink/src/main/java/org/jboss/as/quickstarts/kitchensink/model/Member.java
+/Users/sraghuna/local_dev/kitchensink/src/main/java/org/jboss/as/quickstarts/kitchensink/data/MemberRepository.java
+/Users/sraghuna/local_dev/kitchensink/src/main/java/org/jboss/as/quickstarts/kitchensink/controller/MemberController.java
+/Users/sraghuna/local_dev/kitchensink/src/main/java/org/jboss/as/quickstarts/kitchensink/rest/JaxRsActivator.java
+/Users/sraghuna/local_dev/kitchensink/src/main/java/org/jboss/as/quickstarts/kitchensink/util/Resources.java
+/Users/sraghuna/local_dev/kitchensink/src/main/java/org/jboss/as/quickstarts/kitchensink/rest/MemberResourceRESTService.java
+/Users/sraghuna/local_dev/kitchensink/src/main/java/org/jboss/as/quickstarts/kitchensink/service/MemberRegistration.java
+/Users/sraghuna/local_dev/kitchensink/src/main/java/org/jboss/as/quickstarts/kitchensink/data/MemberListProducer.java
