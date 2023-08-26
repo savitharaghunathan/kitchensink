@@ -28,7 +28,7 @@ oc new-app --name=kitchensink-db \
 oc label deployment/kitchensink-db app.kubernetes.io/part-of=kitchensink-app --overwrite=true && \
 oc label deployment/kitchensink-db app.openshift.io/runtime=postgresql --overwrite=true
 ```
-
+#### Method 1
 * Create the app
 ```
 oc new-app --template=eap74-basic-s2i \
@@ -54,4 +54,20 @@ oc annotate dc/kitchensink \
  app.openshift.io/connects-to='[{"apiVersion":"apps/v1","kind":"Deployment","name":"kitchensink-db"}]' \
  --overwrite=true
 ```
-
+#### Method 2
+* Create the app
+```
+oc new-app --template=eap74-basic-s2i \
+-p APPLICATION_NAME=kitchensink \
+-p EAP_IMAGE_NAME=jboss-eap74-openjdk8-openshift:latest \
+-p EAP_RUNTIME_IMAGE_NAME=jboss-eap74-openjdk8-runtime-openshift:latest \
+-p MAVEN_ARGS_APPEND="-Dcom.redhat.xpaas.repo.jbossorg" \
+-p SOURCE_REPOSITORY_URL="https://github.com/savitharaghunathan/kitchensink.git" \
+-p SOURCE_REPOSITORY_REF=openshift \
+-p CONTEXT_DIR=. \
+--env DB_HOST="kitchensink-db" \
+--env DB_USERNAME="sa" \
+--env DB_PASSWORD="sa" \
+--env DB_NAME="kitchensink" \
+--build-env GALLEON_PROVISION_LAYERS=jaxrs-server,postgresql-driver
+```
