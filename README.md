@@ -68,6 +68,5 @@ oc new-app --template=eap74-basic-s2i \
 --env DB_HOST="kitchensink-db" \
 --env DB_USERNAME="sa" \
 --env DB_PASSWORD="sa" \
---env DB_NAME="kitchensink" \
---build-env GALLEON_PROVISION_LAYERS=jaxrs-server,postgresql-driver
+--env DB_NAME="kitchensink" 
 ```
