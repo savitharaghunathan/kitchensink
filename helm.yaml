@@ -1,3 +1,5 @@
+# This configuration file can be used to build and deploy the todo-backend
+# quickstart on OpenShift with the Helm Chart for EAP.
 build:
   uri: https://github.com/savitharaghunathan/kitchensink.git
   ref: galleon
@@ -5,12 +7,16 @@ build:
   s2i:
     featurePacks:
       - org.jboss.eap:eap-datasources-galleon-pack:7.4.0.GA-redhat-00003
-    galleonLayers: jaxrs-server,postgresql-driver,postgresql-datasource
+    galleonLayers: jaxrs-server,postgresql-driver
   env:
+    - name: MAVEN_ARGS_APPEND
+      value: '-Dcom.redhat.xpaas.repo.jbossorg'
+    - name: GALLEON_PROVISION_FEATURE_PACKS 
+      value: "org.jboss.eap:eap-datasources-galleon-pack:7.4.0.GA-redhat-00003"
+    - name: GALLEON_PROVISION_LAYERS
+      value: "cloud-server,postgresql-datasource,jsf,ejb"
     - name: POSTGRESQL_DRIVER_VERSION
-      value: '42.2.19'
-    - name: ARTIFACT_DIR
-      value: kitchensink/target
+      value: 42.2.19
 deploy:
   replicas: 1
   env:
